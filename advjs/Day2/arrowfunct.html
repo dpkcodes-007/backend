@@ -1,0 +1,122 @@
+<script>
+   
+//    task 1
+
+const name = (firstname,lastname)=>{
+
+    return firstname + "-" + lastname
+
+}
+console.log(name('Bala','Mugund'),"fullname");
+
+// task 2
+
+const product =(price , quan)=>{
+
+    return price * quan
+
+}
+
+console.log(product(100,8),"price * quantity");
+
+// task 3
+
+const age = (validAge) =>{ 
+
+    return age <=18 ? "allowed" : "not allowed "
+
+
+}
+console.log(age(21) , "age check");
+
+// task 4
+
+const largerValue = (m,n,c)=>{
+
+    let largerValue = m
+
+    if (n > largerValue){
+        largerValue = n
+    }
+
+    if (c > largerValue){
+        largerValue = c
+    }
+
+    return largerValue
+
+}
+
+console.log("largest number",largerValue(10,30,50));
+
+// task 5 
+ const parameter = (username = 'deepak') =>{
+    return 'Hii' + username
+ }
+ console.log(parameter());
+ console.log(parameter('deepak'));
+
+ // task 6
+
+ const calc = (a,b) =>{
+
+          console.log('add',a+b);
+          console.log('sub',a-b);
+          console.log('multiply',a*b);
+          console.log('division',a/b);
+        
+ }
+ calc(10,5);
+
+ //task 7
+
+ const subjects = (tam,eng,maths,sci,social)=>{
+
+    let totalMarks = tam+eng+maths+sci+social
+    console.log('total',totalMarks);
+    
+    let avg = totalMarks/5
+    console.log('average',avg);
+    
+
+ }
+ subjects(90,95,99,100,100)
+
+//  task 10 
+
+const check = (num)=>{
+    if (num % 2 === 0){
+        console.log('even');
+        
+    }else {
+        console.log('odd');
+        
+    }
+}
+ check(9)
+
+ //task 11 used buildin
+
+ const stringLength = (str) => {
+    return str.length;
+}
+
+console.log(stringLength("Ronaldo"));
+ 
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

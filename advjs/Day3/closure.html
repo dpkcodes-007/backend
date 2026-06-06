@@ -1,0 +1,59 @@
+<script>
+    // const closure = ()=>{
+    //     let Net_Balance = 1000
+
+    //     return savings = ()=>{
+    //         Net_Balance ++
+    //         console.log(Net_Balance );
+            
+    //     }
+
+    //     return amtWithdrawn = ()=>{
+    //         Net_Balance --
+    //         console.log(Net_Balance);
+            
+    //     }
+
+
+    // }
+    // const savings = closure()
+    // savings()
+
+
+    // const amtWithdrawn = closure()
+    // amtWithdrawn()
+
+    const bank = (cb)=>{
+     
+      let Net_Balance = 1000
+      cb
+    }
+
+    setTimeout(()=>{
+
+        withdraw(1000)
+        savings(600)
+
+
+    },2000)
+    const withdraw =(Net_Balance)=>{
+ 
+        console.log(`amt withdrawn for rupees ${Net_Balance}`);
+        
+    }
+
+    const savings =(Net_Balance)=>{
+        console.log(`savings ${Net_Balance}`);
+        
+    }
+
+    const balance =(Net_Balance)=>{
+        console.log(`balance ${Net_Balance}`);
+        
+    }
+
+    bank(withdraw(500))
+    bank(savings(200))
+    bank(balance(500))
+    
+</script>
