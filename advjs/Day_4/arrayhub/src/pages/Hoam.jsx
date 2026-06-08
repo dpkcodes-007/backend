@@ -6,6 +6,7 @@ const hoamMethods = [
   {
     category: "Transformation",
     description: "Transform each element of an array into something new",
+    icon: "🔄",
     methods: [
       {
         name: "map()",
@@ -26,6 +27,7 @@ const hoamMethods = [
   {
     category: "Filtering",
     description: "Select specific elements based on conditions",
+    icon: "🎯",
     methods: [
       {
         name: "filter()",
@@ -39,6 +41,7 @@ const hoamMethods = [
   {
     category: "Finding",
     description: "Search and locate elements in the array",
+    icon: "🔍",
     methods: [
       {
         name: "find()",
@@ -66,6 +69,7 @@ const hoamMethods = [
   {
     category: "Iteration",
     description: "Execute functions on each array element",
+    icon: "🔄",
     methods: [
       {
         name: "forEach()",
@@ -79,6 +83,7 @@ const hoamMethods = [
   {
     category: "Checking",
     description: "Verify conditions across array elements",
+    icon: "✅",
     methods: [
       {
         name: "some()",
@@ -99,6 +104,7 @@ const hoamMethods = [
   {
     category: "Aggregation",
     description: "Combine elements into a single value",
+    icon: "📊",
     methods: [
       {
         name: "reduce()",
@@ -122,18 +128,21 @@ const HOAM = () => {
   return (
     <>
       <NavBar />
-      <div className="p-10 bg-slate-100 min-h-screen">
+      <div className="p-10 bg-gradient-to-br from-slate-100 to-blue-50 min-h-screen">
         {/* Header Section with Back Button */}
         <div className="max-w-7xl mx-auto">
           <div className="flex justify-between items-center mb-8">
             <div>
-              <h1 className="text-4xl font-bold text-gray-800">Higher Order Array Methods</h1>
+              <h1 className="text-4xl font-bold text-gray-800 flex items-center gap-3">
+                <span className="text-5xl">🎯</span>
+                Higher Order Array Methods
+              </h1>
               <p className="text-gray-600 mt-2">
                 Powerful methods that take functions as arguments to transform, filter, and manipulate arrays
               </p>
             </div>
             <Link to="/">
-              <button className="bg-gray-700 hover:bg-gray-800 text-white px-6 py-2 rounded-lg transition duration-300 flex items-center gap-2">
+              <button className="bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-800 hover:to-gray-900 text-white px-6 py-2 rounded-lg transition duration-300 flex items-center gap-2 shadow-lg">
                 ← Back to Home
               </button>
             </Link>
@@ -141,18 +150,18 @@ const HOAM = () => {
 
           {/* Quick Info Cards */}
           <div className="grid md:grid-cols-3 gap-4 mb-8">
-            <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-              <div className="text-2xl mb-2">🔧</div>
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border border-blue-200 shadow-md hover:shadow-lg transition-shadow">
+              <div className="text-3xl mb-2">🔧</div>
               <h3 className="font-semibold text-blue-800">What are Higher Order Methods?</h3>
               <p className="text-sm text-blue-700">Methods that accept functions as arguments or return functions as results.</p>
             </div>
-            <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-              <div className="text-2xl mb-2">💡</div>
+            <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg border border-green-200 shadow-md hover:shadow-lg transition-shadow">
+              <div className="text-3xl mb-2">💡</div>
               <h3 className="font-semibold text-green-800">Why Use Them?</h3>
               <p className="text-sm text-green-700">Write cleaner, more readable, and declarative code compared to traditional loops.</p>
             </div>
-            <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
-              <div className="text-2xl mb-2">⚡</div>
+            <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg border border-purple-200 shadow-md hover:shadow-lg transition-shadow">
+              <div className="text-3xl mb-2">⚡</div>
               <h3 className="font-semibold text-purple-800">Key Benefits</h3>
               <p className="text-sm text-purple-700">Immutability, chainability, and functional programming style.</p>
             </div>
@@ -162,7 +171,8 @@ const HOAM = () => {
           {hoamMethods.map((section) => (
             <div key={section.category} className="mb-10">
               <div className="mb-4">
-                <h2 className="text-2xl font-bold text-gray-800 border-l-4 border-blue-500 pl-3">
+                <h2 className="text-2xl font-bold text-gray-800 border-l-4 border-blue-500 pl-3 flex items-center gap-2">
+                  <span className="text-2xl">{section.icon}</span>
                   {section.category}
                 </h2>
                 <p className="text-gray-600 mt-1 ml-4">{section.description}</p>
@@ -184,14 +194,32 @@ const HOAM = () => {
           ))}
 
           {/* Tips Section */}
-          <div className="mt-12 bg-yellow-50 border border-yellow-200 rounded-lg p-6">
-            <h3 className="text-lg font-bold text-yellow-800 mb-3">💡 Pro Tips</h3>
+          <div className="mt-12 bg-gradient-to-br from-yellow-50 to-amber-50 border border-yellow-200 rounded-lg p-6 shadow-md">
+            <h3 className="text-lg font-bold text-yellow-800 mb-3 flex items-center gap-2">
+              <span className="text-2xl">💡</span>
+              Pro Tips
+            </h3>
             <ul className="space-y-2 text-yellow-800">
-              <li>• Chain methods together for complex operations: <code className="bg-yellow-100 px-2 py-1 rounded">array.filter().map().reduce()</code></li>
-              <li>• Higher order methods don't modify the original array (immutable) - always return new arrays</li>
-              <li>• Use arrow functions for shorter, cleaner syntax</li>
-              <li>• Combine with spread operator (...) for even more powerful operations</li>
-              <li>• Always consider performance with large arrays - some methods are slower than traditional loops</li>
+              <li className="flex items-start gap-2">
+                <span>✨</span>
+                <span>Chain methods together for complex operations: <code className="bg-yellow-100 px-2 py-1 rounded">array.filter().map().reduce()</code></span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span>✨</span>
+                <span>Higher order methods don't modify the original array (immutable) - always return new arrays</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span>✨</span>
+                <span>Use arrow functions for shorter, cleaner syntax</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span>✨</span>
+                <span>Combine with spread operator (...) for even more powerful operations</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span>✨</span>
+                <span>Always consider performance with large arrays - some methods are slower than traditional loops</span>
+              </li>
             </ul>
           </div>
         </div>

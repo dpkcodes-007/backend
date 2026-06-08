@@ -1,11 +1,29 @@
 ﻿import NavBar from "../components/NavBar";
 import MethodCard from "../components/MethodCard";
 import { Link } from "react-router-dom";
+import { 
+  FaArrowLeft, 
+  FaBox, 
+  FaBolt, 
+  FaSync, 
+  FaLightbulb, 
+  FaExclamationTriangle,
+  FaPlusCircle,
+  FaMinusCircle,
+  FaSearch,
+  FaCut,
+  FaExchangeAlt,
+  FaSort,
+  FaCheckCircle,
+  FaBook,
+  FaCode
+} from "react-icons/fa";
 
 const normalMethods = [
   {
     category: "Add Methods",
     description: "Add new elements to your array",
+    icon: <FaPlusCircle className="text-green-500" />,
     methods: [
       {
         name: "push()",
@@ -33,6 +51,7 @@ const normalMethods = [
   {
     category: "Remove Methods",
     description: "Remove elements from your array",
+    icon: <FaMinusCircle className="text-red-500" />,
     methods: [
       {
         name: "pop()",
@@ -53,6 +72,7 @@ const normalMethods = [
   {
     category: "Search Methods",
     description: "Find elements and check their existence",
+    icon: <FaSearch className="text-blue-500" />,
     methods: [
       {
         name: "includes()",
@@ -80,6 +100,7 @@ const normalMethods = [
   {
     category: "Extract Methods",
     description: "Create new arrays from existing ones",
+    icon: <FaCut className="text-purple-500" />,
     methods: [
       {
         name: "slice()",
@@ -100,6 +121,7 @@ const normalMethods = [
   {
     category: "Convert Methods",
     description: "Transform arrays into other formats",
+    icon: <FaExchangeAlt className="text-orange-500" />,
     methods: [
       {
         name: "join()",
@@ -120,6 +142,7 @@ const normalMethods = [
   {
     category: "Rearrange Methods",
     description: "Reorganize array elements",
+    icon: <FaSort className="text-indigo-500" />,
     methods: [
       {
         name: "reverse()",
@@ -143,90 +166,194 @@ const NormalArray = () => {
   return (
     <>
       <NavBar />
-      <div className="p-10 bg-slate-100 min-h-screen">
-        {/* Header Section with Back Button */}
-        <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between items-center mb-8">
-            <div>
-              <h1 className="text-4xl font-bold text-gray-800">Normal Array Methods</h1>
-              <p className="text-gray-600 mt-2">
-                Essential methods to manipulate, search, and transform arrays in JavaScript
-              </p>
-            </div>
-            <Link to="/">
-              <button className="bg-gray-700 hover:bg-gray-800 text-white px-6 py-2 rounded-lg transition duration-300 flex items-center gap-2">
-                ← Back to Home
-              </button>
-            </Link>
-          </div>
-
-          {/* Quick Info Cards */}
-          <div className="grid md:grid-cols-3 gap-4 mb-8">
-            <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-              <div className="text-2xl mb-2">📦</div>
-              <h3 className="font-semibold text-blue-800">What are Normal Methods?</h3>
-              <p className="text-sm text-blue-700">Basic array methods that directly manipulate or extract data from arrays.</p>
-            </div>
-            <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-              <div className="text-2xl mb-2">⚡</div>
-              <h3 className="font-semibold text-green-800">Key Operations</h3>
-              <p className="text-sm text-green-700">Add, remove, search, extract, convert, and rearrange array elements.</p>
-            </div>
-            <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
-              <div className="text-2xl mb-2">🔄</div>
-              <h3 className="font-semibold text-purple-800">Mutating vs Non-mutating</h3>
-              <p className="text-sm text-purple-700">Some methods modify original array (push, pop), others create new arrays (slice, concat).</p>
-            </div>
-          </div>
-
-          {/* Methods Grid */}
-          {normalMethods.map((section) => (
-            <div key={section.category} className="mb-10">
-              <div className="mb-4">
-                <h2 className="text-2xl font-bold text-gray-800 border-l-4 border-blue-500 pl-3">
-                  {section.category}
-                </h2>
-                <p className="text-gray-600 mt-1 ml-4">{section.description}</p>
+      <div className="min-h-screen bg-gradient-to-br from-slate-100 via-blue-50 to-indigo-50">
+        <div className="p-10">
+          {/* Header Section with Back Button */}
+          <div className="max-w-7xl mx-auto">
+            <div className="flex justify-between items-center mb-8">
+              <div>
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-2 rounded-lg">
+                    <FaCode className="text-white text-2xl" />
+                  </div>
+                  <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                    Normal Array Methods
+                  </h1>
+                </div>
+                <p className="text-gray-600 mt-2 text-lg">
+                  Essential methods to manipulate, search, and transform arrays in JavaScript
+                </p>
               </div>
-              <div className="grid md:grid-cols-2 gap-6">
-                {section.methods.map((method) => (
-                  <MethodCard
-                    key={`${section.category}-${method.name}`}
-                    title={method.name}
-                    description={section.category}
-                    code={method.example}
-                    output={method.output}
-                    details={method.details}
-                    useCase={method.useCase}
-                  />
-                ))}
+              <Link to="/">
+                <button className="bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-800 hover:to-gray-900 text-white px-6 py-2 rounded-lg transition duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl">
+                  <FaArrowLeft /> Back to Home
+                </button>
+              </Link>
+            </div>
+
+            {/* Quick Info Cards */}
+            <div className="grid md:grid-cols-3 gap-6 mb-12">
+              <div className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-l-4 border-blue-500">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="bg-blue-100 p-3 rounded-full group-hover:scale-110 transition-transform">
+                    <FaBox className="text-blue-600 text-xl" />
+                  </div>
+                  <h3 className="font-bold text-blue-800 text-lg">What are Normal Methods?</h3>
+                </div>
+                <p className="text-gray-600">Basic array methods that directly manipulate or extract data from arrays.</p>
+              </div>
+              
+              <div className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-l-4 border-green-500">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="bg-green-100 p-3 rounded-full group-hover:scale-110 transition-transform">
+                    <FaBolt className="text-green-600 text-xl" />
+                  </div>
+                  <h3 className="font-bold text-green-800 text-lg">Key Operations</h3>
+                </div>
+                <p className="text-gray-600">Add, remove, search, extract, convert, and rearrange array elements.</p>
+              </div>
+              
+              <div className="group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border-l-4 border-purple-500">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="bg-purple-100 p-3 rounded-full group-hover:scale-110 transition-transform">
+                    <FaSync className="text-purple-600 text-xl" />
+                  </div>
+                  <h3 className="font-bold text-purple-800 text-lg">Mutating vs Non-mutating</h3>
+                </div>
+                <p className="text-gray-600">Some methods modify original array (push, pop), others create new arrays (slice, concat).</p>
               </div>
             </div>
-          ))}
 
-          {/* Tips Section */}
-          <div className="mt-12 bg-yellow-50 border border-yellow-200 rounded-lg p-6">
-            <h3 className="text-lg font-bold text-yellow-800 mb-3">💡 Pro Tips</h3>
-            <ul className="space-y-2 text-yellow-800">
-              <li>• <strong>push/pop</strong> are faster than <strong>unshift/shift</strong> because they don't need to reindex all elements</li>
-              <li>• Always check if an array is empty before using <strong>pop()</strong> or <strong>shift()</strong> to avoid undefined values</li>
-              <li>• Use <strong>slice()</strong> to create a copy of an array: <code className="bg-yellow-100 px-2 py-1 rounded">const copy = original.slice()</code></li>
-              <li>• <strong>splice()</strong> is versatile - it can add, remove, and replace elements in one operation</li>
-              <li>• For sorting numbers correctly, always provide a compare function: <code className="bg-yellow-100 px-2 py-1 rounded">sort((a,b) =&gt; a - b)</code></li>
-              <li>• <strong>join()</strong> without parameters uses commas by default, specify a separator for better formatting</li>
-            </ul>
-          </div>
+            {/* Methods Grid */}
+            {normalMethods.map((section) => (
+              <div key={section.category} className="mb-12">
+                <div className="mb-6">
+                  <h2 className="text-2xl font-bold text-gray-800 border-l-4 border-blue-500 pl-3 flex items-center gap-2">
+                    {section.icon}
+                    {section.category}
+                  </h2>
+                  <p className="text-gray-600 mt-2 ml-4">{section.description}</p>
+                </div>
+                <div className="grid md:grid-cols-2 gap-6">
+                  {section.methods.map((method) => (
+                    <MethodCard
+                      key={`${section.category}-${method.name}`}
+                      title={method.name}
+                      description={section.category}
+                      code={method.example}
+                      output={method.output}
+                      details={method.details}
+                      useCase={method.useCase}
+                    />
+                  ))}
+                </div>
+              </div>
+            ))}
 
-          {/* Common Mistakes Section */}
-          <div className="mt-6 bg-red-50 border border-red-200 rounded-lg p-6">
-            <h3 className="text-lg font-bold text-red-800 mb-3">⚠️ Common Mistakes to Avoid</h3>
-            <ul className="space-y-2 text-red-800">
-              <li>• Forgetting that <strong>sort()</strong> sorts strings by default - numbers need a compare function</li>
-              <li>• Not realizing that <strong>reverse()</strong> and <strong>sort()</strong> modify the original array</li>
-              <li>• Using <strong>splice()</strong> when you meant <strong>slice()</strong> - they sound similar but work differently</li>
-              <li>• Assuming <strong>indexOf()</strong> works with objects (it uses strict equality, so it won't find different object references)</li>
-              <li>• Using <strong>push()</strong> inside a loop without considering performance for large arrays</li>
-            </ul>
+            {/* Tips Section */}
+            <div className="mt-12 bg-gradient-to-r from-slate-50 to-slate-100 rounded-xl p-8 shadow-lg border-l-4 border-blue-500">
+              <h3 className="text-2xl font-bold text-blue-800 mb-4 flex items-center gap-3">
+                <div className="bg-blue-200 p-2 rounded-full">
+                  <FaLightbulb className="text-blue-600 text-xl" />
+                </div>
+                Pro Tips
+              </h3>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start gap-3">
+                  <FaCheckCircle className="text-green-600 mt-1 flex-shrink-0" />
+                  <span><strong className="font-semibold">push/pop</strong> are faster than <strong className="font-semibold">unshift/shift</strong> because they don't need to reindex all elements</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <FaCheckCircle className="text-green-600 mt-1 flex-shrink-0" />
+                  <span>Always check if an array is empty before using <strong className="font-semibold">pop()</strong> or <strong className="font-semibold">shift()</strong> to avoid undefined values</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <FaCheckCircle className="text-green-600 mt-1 flex-shrink-0" />
+                  <span>Use <strong className="font-semibold">slice()</strong> to create a copy of an array: <code className="bg-slate-100 px-2 py-1 rounded text-sm">const copy = original.slice()</code></span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <FaCheckCircle className="text-green-600 mt-1 flex-shrink-0" />
+                  <span><strong className="font-semibold">splice()</strong> is versatile - it can add, remove, and replace elements in one operation</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <FaCheckCircle className="text-green-600 mt-1 flex-shrink-0" />
+                  <span>For sorting numbers correctly, always provide a compare function: <code className="bg-slate-100 px-2 py-1 rounded text-sm">sort((a,b) =&gt; a - b)</code></span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <FaCheckCircle className="text-green-600 mt-1 flex-shrink-0" />
+                  <span><strong className="font-semibold">join()</strong> without parameters uses commas by default, specify a separator for better formatting</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Common Mistakes Section */}
+            <div className="mt-8 bg-gradient-to-r from-red-50 to-pink-50 rounded-xl p-8 shadow-lg border-l-4 border-red-500">
+              <h3 className="text-2xl font-bold text-red-800 mb-4 flex items-center gap-3">
+                <div className="bg-red-200 p-2 rounded-full">
+                  <FaExclamationTriangle className="text-red-600 text-xl" />
+                </div>
+                Common Mistakes to Avoid
+              </h3>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start gap-3">
+                  <span className="text-red-500 font-bold">⚠</span>
+                  <span>Forgetting that <strong className="font-semibold">sort()</strong> sorts strings by default - numbers need a compare function</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-red-500 font-bold">⚠</span>
+                  <span>Not realizing that <strong className="font-semibold">reverse()</strong> and <strong className="font-semibold">sort()</strong> modify the original array</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-red-500 font-bold">⚠</span>
+                  <span>Using <strong className="font-semibold">splice()</strong> when you meant <strong className="font-semibold">slice()</strong> - they sound similar but work differently</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-red-500 font-bold">⚠</span>
+                  <span>Assuming <strong className="font-semibold">indexOf()</strong> works with objects (it uses strict equality, so it won't find different object references)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-red-500 font-bold">⚠</span>
+                  <span>Using <strong className="font-semibold">push()</strong> inside a loop without considering performance for large arrays</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Progress Tracker */}
+            <div className="mt-8 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 shadow-lg">
+              <h3 className="text-lg font-bold text-blue-800 mb-3 flex items-center gap-2">
+                <FaBook className="text-blue-600" />
+                Learning Progress
+              </h3>
+              <div className="space-y-3">
+                <div>
+                  <div className="flex justify-between text-sm text-gray-600 mb-1">
+                    <span>Add Methods</span>
+                    <span>3/3 Methods Learned</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                    <div className="bg-gradient-to-r from-green-500 to-green-600 h-2 rounded-full w-full"></div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between text-sm text-gray-600 mb-1">
+                    <span>Remove Methods</span>
+                    <span>2/2 Methods Learned</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                    <div className="bg-gradient-to-r from-green-500 to-green-600 h-2 rounded-full w-full"></div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between text-sm text-gray-600 mb-1">
+                    <span>Search Methods</span>
+                    <span>3/3 Methods Learned</span>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                    <div className="bg-gradient-to-r from-green-500 to-green-600 h-2 rounded-full w-full"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
