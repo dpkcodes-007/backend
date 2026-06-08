@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // Task 1 - Bank Account Using Closure
+    // Create a closure-based bank account system.
+    // Features:
+    // Initial Balance = 5000
+    // Deposit Amount
+    // Withdraw Amount
+    // Check Balance
+    // Use closure to keep balance private.
+
+
+    const bankAcc = ()=>{
+        let balance = 5000;
+
+        return {
+            depositAmt : (amt)=>(
+                balance += amt
+        ),
+            withdrawAmt : (amt)=>(
+                balance -= amt
+        ),
+            checkBalance : ()=>(
+                  balance  
+        )
+            
+        }
+        
+    }
+
+//    console.log( bankAcc().checkBalance());
+   
+    // Task 2 - Student Attendance Counter
+    // Create a closure that maintains attendance count.
+    // Requirements:
+    // Every function call increases attendance.
+    // Display current attendance count.
+    // Count should not reset.
+    const attendence = ()=>{
+        let count =0;
+         return ()=>{
+            count++
+            console.log("Count :",count)
+        }
+    }
+
+    let mark = attendence()
+    mark();
+    mark();
+    mark();
+
+    // Task 3 - Website Visitor Counter
+    // Create a closure-based visitor counter.
+    // Requirements:
+    // Each visit should increase count.
+    // Display total visitors.
+    // Counter value should remain preserved.
+
+
+    const visitorCounter = ()=>{
+        let count =0;
+         return ()=>{
+            count++
+            console.log("Visitor Count :",count)
+        }
+    }
+
+   let webVisitor = visitorCounter()
+
+   webVisitor()
+   webVisitor()
+
+    // Task 4 - Shopping Cart Counter
+    // Create a closure for cart management.
+    // Requirements:
+    // Add product.
+    // Remove product.
+    // Display total items.
+    // Item count should remain private.
+    
+    const shoppingCart = ()=>{
+        let itemCount =0;
+        return {
+            addItem : (count)=>(
+                itemCount += count
+            ),
+            removeItem : (count)=>(
+                itemCount -= count
+            ),
+            totalItems : ()=>(
+                itemCount
+            )
+        }
+    }
+
+    const cart = shoppingCart();
+    cart.addItem(5);
+    console.log(cart.totalItems());
+    cart.removeItem(3);
+    console.log(cart.totalItems());
+
+    //     Task 6 - Login Attempt Tracker
+    // Create a closure.
+    // Requirements:
+    // Every login attempt increases count.
+    // Display current attempt number.
+    // Count should remain preserved.
+
+    const loginAttempt = ()=>{
+        let attemptCount =0;
+        return ()=>{
+            attemptCount++
+            console.log("Login Attempt :",attemptCount)
+        }
+    }
+    const login = loginAttempt();
+    login();
+    login();
+    </script>
+</body>
+</html>
