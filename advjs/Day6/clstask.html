@@ -1,0 +1,142 @@
+Task 1
+Create a student profile using Template Literals and display the student's name, course, city, and institute in a formatted output.
+Task 2
+Create an Arrow Function that accepts employee details and calculates the yearly salary from the monthly salary.
+Task 3
+Create an Arrow Function that accepts a product price and discount percentage and returns the final discounted price.
+Task 4
+Create a user registration function using Default Parameters. If no role is provided, automatically assign a default role.
+Task 5
+Create a shopping cart function using Rest Parameters that accepts multiple product prices and calculates the total bill amount.
+Task 6
+Given two arrays containing frontend and backend technologies, merge them into a single array using the Spread Operator.
+Task 7
+Create a copy of an employee object and add new properties such as department, experience, and salary without modifying the original object.
+Task 8
+Given a student object containing multiple properties, extract all values into separate variables using Object Destructuring and display them.
+Task 9
+Create an object using Enhanced Object Literals without manually assigning property names and values.
+Task 10
+Create a user dashboard system that safely accesses nested properties such as profile, address, and city using Optional Chaining and displays a default value using Nullish Coalescing when data is unavailable
+
+
+
+
+<script>
+    
+    //task 1
+    const obj = {studentName : "Karuppu",Course : "MERN",city : "Chennai",institute : "sla"}
+    console.log(`
+    Name : ${obj.studentName}
+    Course : ${obj.Course}
+    city : ${obj.city}
+    institute : ${obj.institute}`);
+
+    //task 2
+    const name = "sundar"
+    const role = "mern web developer"
+    
+    const salary = (yearly,monthly) => {
+       
+
+        return monthly * yearly
+        
+        
+
+    } 
+      console.log(
+              `${name}
+              ${role} `);
+  console.log(  salary(12,100000))
+
+    //task 3 
+
+    const calc = (a,b)=> {
+      return   a - (a*b) / 100
+        
+}
+    
+    console.log(calc(12000,20));
+
+    // task 4
+
+    const regisUser = (x = "deepak",y) => {
+        console.log(`name : ${x} role : ${y}`);
+        
+
+    }
+    regisUser()
+    regisUser("deepak" , "MERN")
+
+    //task 5 
+
+    const shop = (...price)=>{
+
+        let final = 0 
+
+        for (calx of price){
+            final += calx
+        }
+        return final 
+    }
+    console.log(shop(200,1000,239,111));
+    
+
+
+
+
+    //task 6
+    const odd = [1,3,5,7,9]
+    const even = [ 2,4,6,8,10]
+    const merge = [...odd,...even]
+    console.log(merge);
+        
+
+    //task 7 
+
+    const emp =  {
+        username : "deepak",
+        age : 20,
+        role : 'web developer'
+    }
+    
+    const updateEmp ={
+        ...emp,
+          experience: "2 Years",
+          salary: 50000
+};
+
+console.log(emp);
+console.log(updateEmp);
+
+
+// task 8
+
+const deconstructor = {
+    fullname : "mugund",
+    age : 27,
+    job : "mern trainer"
+} 
+
+const {fullname,age,job} = deconstructor 
+
+console.log(fullname);
+console.log(age);
+console.log(job);  
+
+// task 9
+
+
+
+//task 10 
+
+
+
+
+    
+
+
+    
+
+    
+</script>
