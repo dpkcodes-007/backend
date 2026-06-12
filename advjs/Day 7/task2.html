@@ -1,0 +1,78 @@
+<script>
+    //Task 1
+const getStudent = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Sudhan");
+    }, 2000);
+  });
+};
+
+getStudent()
+  .then((student) => {
+    console.log(student);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+//Task 2 
+const getEmployee = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve({
+        id: 1,
+        name: "Sudhan",
+        role: "Trainer"
+      });
+    }, 3000);
+  });
+};
+
+getEmployee()
+  .then((employee) => {
+    console.log(employee);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+//Task 3 
+const login = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Login Success");
+    }, 2000);
+  });
+};
+
+login()
+  .then((msg) => {
+    console.log(msg);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+//Task 4 - 
+const getProducts = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve([
+        "Laptop",
+        "Mobile",
+        "Keyboard"
+      ]);
+    }, 2000);
+  });
+};
+
+getProducts()
+  .then((products) => {
+    console.log(products);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+</script>
+
+
+
+
