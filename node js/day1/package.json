@@ -1,17 +1,15 @@
 {
-  "name": "day1",
+  "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "sever.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"nodemon sever.js",
-    "start":"node sever.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
+  "type": "commonjs",
   "dependencies": {
     "dotenv": "^17.4.2",
     "nodemon": "^3.1.14"
