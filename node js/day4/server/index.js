@@ -48,3 +48,45 @@ app.listen(PORTenv,()=>{
 //     console.log(`sucessfully connected on http://localhost:${portno}`);
     
 // })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import express,{json} from 'express'
+// import dotenv from 'dotenv'
+// import cors from 'cors'
+
+// dotenv.config()
+
+// const http = express()
+// http.use(cors())
+// hhtp.use(json())
+// const portvalue = process.env.PORT || 3000
+// http.listen(portvalue,()=>{
+//     console.log(`suceesfully connected to bluetooth via http://localhost:${portvalue}`);
+    
+// })
