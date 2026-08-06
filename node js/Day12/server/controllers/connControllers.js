@@ -9,24 +9,24 @@ export const registerData = async (req, res) => {
         
 
         if (!username || !useremail|| !userpassword) {
-            return res.status(409).json({ msg: 'kindly fill the empty fields' })
+            return res.status(400).json({ msg: 'kindly fill the empty fields' })
         }
 
         const checkemail = await connmodel.findOne({ useremail })
 
         if (checkemail) {
-            return res.status(401).json({ msg: 'your email already exists' })
+            return res.status(409).json({msg:"Entered Email id has been already existed "})
         }
 
         const checkpass = await bcrypt.hash(userpassword,10)
 
-        const newUser = await connmodel.create({username,useremail,userpassword})
-        return res.status(200).json({ msg: 'user sucessfully login-ed', data: newUser })
+        const newUser = await connmodel.create({username,useremail,userpassword:checkpass})
+        return res.status(201).json({ msg: 'user sucessfully registered', data: newUser })
 
 
     } catch (error) {
         console.log('error', error.message)
-        return res.status(500).json({ msg: 'failed to login', error: error.message })
+        return res.status(500).json({ msg: 'failed to regsiter', error: error.message })
     }
 }
 
@@ -37,10 +37,10 @@ export const loginData = async(req,res)=>{
         if (!useremail || !userpassword) {
             return res.status(400).json({msg:"Kindly fill the empty fields"})
         }
-        
-        const emailcheck = await connmodel.findOne(useremail)
+    
+        const emailcheck = await connmodel.findOne({useremail})
         if (!emailcheck) {
-            return res.status(409).json({msg:"Entered Email id has been already existed "})
+            return res.status(409).json({msg:"Entered Email id has not found"})
         }
 
 
@@ -53,7 +53,7 @@ export const loginData = async(req,res)=>{
     } catch (error) {
 
         console.log('error', error.message)
-        return res.status(500).json({ msg: 'failed to register', error: error.message })
+        return res.status(500).json({ msg: 'failed to login', error: error.message })
     }
 }
 
